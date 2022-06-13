@@ -8,8 +8,12 @@ group:
       - source: .github/CODEOWNERS
       - source: .github/dependabot.yml
       - source: .github/FUNDING.yml
+      - source: .github/labels.yml
       - LICENSE
+      - favicon.ico
       - .gitignore
+      - source: .packager
+        dest: .packager
       - source: img/logo.jpg
         deleteOrphaned: true
     repos: |

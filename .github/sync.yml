@@ -17,7 +17,7 @@ group:
 
 # files to be synced
   - files:
-      - source: .git-sync/modules/.github
+      - source: .github
         dest: .github
         deleteOrphaned: true # Removes deleted files
       - source: .github/CODEOWNERS

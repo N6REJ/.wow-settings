@@ -13,6 +13,7 @@ group:
     N6REJ/Adibags_Shadowlands_Enchanting
     N6REJ/Adibags_Shadowlands_Fishing
     N6REJ/Adibags_Shadowlands_Jewelcrafting
+    N6REJ/Bears_switcher
 
 # files to be synced
   - files:
@@ -26,8 +27,6 @@ group:
       - LICENSE
       - favicon.ico
       - .gitignore
-      - source: .packager/
-        dest: .packager/
       - source: img/logo.jpg
         deleteOrphaned: true
 

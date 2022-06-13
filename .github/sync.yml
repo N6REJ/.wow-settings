@@ -11,8 +11,8 @@ group:
       - LICENSE
       - favicon.ico
       - .gitignore
-      - source: .packager
-        dest: .packager
+      - source: .packager/
+        dest: .packager/
       - source: img/logo.jpg
         deleteOrphaned: true
     repos: |

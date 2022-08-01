@@ -26,18 +26,22 @@ remove all non-addon repos and use notepad++ to sort listing *optional*
    - ```WAGO_API_TOKEN```
    - ```CF_API_KEY```
 
+9. In repo create webhook.  Info is found in "github" section of wago settings.
+<img width="449" alt="image" src="https://user-images.githubusercontent.com/1850089/173345492-e9c57245-209b-4bbd-ab88-058a4d9f9e28.png">
+ 
+
      *Use values from top of key file for key values*
-9. open .wow-settings repo in phpstorm & put repo url into sync.yml repo list
-10. Commit & push
-11. open addon repo in phpstorm
-12. pull
-13. make sure .packager/ and .github have been synced with the settings repo https://github.com/N6REJ/.wow-settings
+10. open .wow-settings repo in phpstorm & put repo url into sync.yml repo list
+11. Commit & push
+12. open addon repo in phpstorm
+13. pull
+14. make sure .packager/ and .github have been synced with the settings repo https://github.com/N6REJ/.wow-settings
     *Both should have "release.yml" in workflows*
-14. Write addon, commit, & push
-15. create tag using yyyy.mm.dd versioning
-16. push
-17. verify action was run and files were pushed to wago & curseforge
-18. open curseforge "manage projects" and put in git repo info.
-19. verify all settings and file data matches addon repo.
-20. open wago "settings" and sync everything from repo.
-21. check both dashboards and verify file\(s\) exist.
+15. Write addon, commit, & push
+16. create tag using yyyy.mm.dd versioning
+17. push
+18. verify action was run and files were pushed to wago & curseforge
+19. open curseforge "manage projects" and put in git repo info.
+20. verify all settings and file data matches addon repo.
+21. open wago "settings" and sync everything from repo.
+22. check both dashboards and verify file\(s\) exist.

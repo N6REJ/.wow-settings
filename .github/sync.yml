@@ -3,11 +3,10 @@ group:
   - files:
       - source: .github
         dest: .github
+        exclude: |
+            .github/workflows/sync.yml
+            sync.yml
         deleteOrphaned: true # Removes deleted files
-      - source: .github/CODEOWNERS
-      - source: .github/dependabot.yml
-      - source: .github/FUNDING.yml
-      - source: .github/labels.yml
       - LICENSE
       - favicon.ico
       - .gitignore

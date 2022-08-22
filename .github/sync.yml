@@ -12,7 +12,7 @@ group:
       - source: .github/workflows/create-labels.yml
         dest: .github/workflows/create-labels.yml
       - source: .github/workflows/release.yml
-        dest: .github/workflow/release.yml
+        dest: .github/workflows/release.yml
       - source: .github/auto-merge.yml
         dest: .github/auto-merge.yml
       - source: .github/workflows/auto-merge.yml

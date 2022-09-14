@@ -1,12 +1,22 @@
 group:
 # files to be synced
   - files:
-      - source: .github
-        dest: .github
-        exclude: |
-            .github/workflows/sync.yml
-            sync.yml
-        deleteOrphaned: true # Removes deleted files
+      - source: .github/CODEOWNERS
+        dest: .github/CODEOWNERS
+      - source: .github/FUNDING.yml
+        dest: .github/FUNDING.yml
+      - source: .github/dependabot.yml
+        dest: .github/dependabot.yml
+      - source: .github/labels.yml
+        dest: .github/labels.yml
+      - source: .github/workflows/create-labels.yml
+        dest: .github/workflows/create-labels.yml
+      - source: .github/workflows/release.yml
+        dest: .github/workflows/release.yml
+      - source: .github/auto-merge.yml
+        dest: .github/auto-merge.yml
+      - source: .github/workflows/auto-merge.yml
+        dest: .github/workflows/auto-merge.yml
       - LICENSE
       - favicon.ico
       - source: .packager/

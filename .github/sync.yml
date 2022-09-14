@@ -17,6 +17,8 @@ group:
         dest: .github/auto-merge.yml
       - source: .github/workflows/auto-merge.yml
         dest: .github/workflows/auto-merge.yml
+      - source: .github/.gitignore
+        dest: .github/.gitignore
       - LICENSE
       - favicon.ico
       - source: .packager/

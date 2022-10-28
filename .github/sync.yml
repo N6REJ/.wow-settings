@@ -23,7 +23,6 @@ group:
       - favicon.ico
       - source: .packager/
         dest: .packager/
-      - source:
     repos: |
       N6REJ/AdiBags_Queens_Conservatory
       N6REJ/AdiBags_Bears_Blacksmithing

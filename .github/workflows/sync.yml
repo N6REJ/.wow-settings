@@ -3,6 +3,7 @@ on:
     push:
         branches:
             - main
+        manual:
     workflow_dispatch:
 jobs:
     sync:

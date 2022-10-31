@@ -17,6 +17,8 @@ group:
         dest: .github/auto-merge.yml
       - source: .github/workflows/auto-merge.yml
         dest: .github/workflows/auto-merge.yml
+      - source: .github/sync.yml
+        dest: .github/sync.yml        
       - source: .gitignore
         dest: .gitignore
       - LICENSE

@@ -46,8 +46,8 @@ group:
   - files:
      - source: wow/core.lua
        dest: core.lua
-     - source: wow/locales.lua
-       dest: locales.lua
+     - source: wow/expansion.lua
+       dest: expansion.lua
     repos: |
         N6REJ/AdiBags_Bears_Blacksmithing
         N6REJ/AdiBags_Bears_Cooking

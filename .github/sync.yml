@@ -76,6 +76,8 @@ group:
           dest: DF-Vendor.lua
         - source: wow/expansion.lua
           dest: DF-Zone.lua
+        - source: wow/expansion.lua
+          dest: DF-Elemental.lua
     repos: |
         N6REJ/AdiBags_Bears_Blacksmithing
         N6REJ/AdiBags_Bears_Cooking

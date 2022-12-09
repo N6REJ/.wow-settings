@@ -21,6 +21,7 @@ db.Filters = {
 		items = {
 			-- ID    = true,    --Item name
 			[191474] = true, -- Draconic Vial
+			[200860] = true, -- Draconic Stopper
 			[197861] = true, -- Fleeting Philosopher's Stone
 			[194784] = true, -- Glittering Parchment
 			[38682]  = true, -- Enchanting Vellum
@@ -30,6 +31,12 @@ db.Filters = {
 			[197750] = true, -- Three-Cheese Blend
 			[197751] = true, -- Pastry packets
 			[197753] = true, -- Thaldraszian Cocoa Powder
+			[201584] = true, -- Serevite Rod
+			[190452] = true, -- Primal Flux
+			[201832] = true, -- Smudged Lens
+			[198487] = true, -- Iridescent Water
+			[192833] = true, -- Misshapen Filigree
+			[198796] = true, -- Quack-E Quack Modulator
 		}
 	}
 }

@@ -72,11 +72,11 @@ group:
 
     # only for Professions databases
   - files:
-        - source: wow/expansion.lua
+        - source: wow/DF-Vendor.lua
           dest: DF-Vendor.lua
-        - source: wow/expansion.lua
+        - source: wow/DF-Zone.lua
           dest: DF-Zone.lua
-        - source: wow/expansion.lua
+        - source: wow/DF-Elemental.lua
           dest: DF-Elemental.lua
     repos: |
         N6REJ/AdiBags_Bears_Blacksmithing

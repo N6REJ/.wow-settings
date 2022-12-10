@@ -74,8 +74,8 @@ group:
   - files:
         - source: wow/DF-Vendor.lua
           dest: DF-Vendor.lua
-        - source: wow/DF-Zone.lua
-          dest: DF-Zone.lua
+        - source: wow/DF-Global.lua
+          dest: DF-Global.lua
         - source: wow/DF-Elemental.lua
           dest: DF-Elemental.lua
     repos: |

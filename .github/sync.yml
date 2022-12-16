@@ -24,25 +24,25 @@ group:
       - source: .packager/
         dest: .packager/
     repos: |
-      N6REJ/AdiBags_Queens_Conservatory
-      N6REJ/AdiBags_Bears_Blacksmithing
-      N6REJ/AdiBags_Bears_Cooking
-      N6REJ/AdiBags_Bears_Engineering
-      N6REJ/AdiBags_Bears_Herbs
-      N6REJ/AdiBags_Bears_Inscription
-      N6REJ/AdiBags_Bears_Leatherworking
-      N6REJ/AdiBags_Bears_Mining
-      N6REJ/AdiBags_Bears_Tailoring
-      N6REJ/Adibags_Bears_Alchemy
-      N6REJ/Adibags_Bears_Enchanting
-      N6REJ/Adibags_Bears_Fishing
-      N6REJ/Adibags_Bears_Jewelcrafting
-      N6REJ/AdiBags_Bears_Battle_Pet_Items
-      N6REJ/AdiBags_Bears_Keystones
-      N6REJ/AdiBags_Bears_Ultimate
-      N6REJ/AdiBags_Bears_Hearthstones
-      N6REJ/AdiBags-Bears-Fishing-Items
-      N6REJ/Bears_audio_switcher
+        N6REJ/Adibags_Bears_Alchemy
+        N6REJ/AdiBags_Bears_Battle_Pet_Items
+        N6REJ/AdiBags_Bears_Blacksmithing
+        N6REJ/AdiBags_Bears_Cooking
+        N6REJ/Adibags_Bears_Enchanting
+        N6REJ/AdiBags_Bears_Engineering
+        N6REJ/Adibags_Bears_Fishing
+        N6REJ/AdiBags-Bears-Fishing-Items
+        N6REJ/AdiBags_Bears_Hearthstones
+        N6REJ/AdiBags_Bears_Herbs
+        N6REJ/AdiBags_Bears_Inscription
+        N6REJ/Adibags_Bears_Jewelcrafting
+        N6REJ/AdiBags_Bears_Keystones
+        N6REJ/AdiBags_Bears_Leatherworking
+        N6REJ/AdiBags_Bears_Mining
+        N6REJ/AdiBags_Queens_Conservatory
+        N6REJ/AdiBags_Bears_Tailoring
+        N6REJ/AdiBags_Bears_Ultimate
+        N6REJ/Bears_audio_switcher
 
 # only for Adibags
   - files:
@@ -51,44 +51,44 @@ group:
      - source: wow/expansion.lua
        dest: expansion.lua
     repos: |
+        N6REJ/Adibags_Bears_Alchemy
+        N6REJ/AdiBags_Bears_Battle_Pet_Items
         N6REJ/AdiBags_Bears_Blacksmithing
         N6REJ/AdiBags_Bears_Cooking
+        N6REJ/Adibags_Bears_Enchanting
         N6REJ/AdiBags_Bears_Engineering
+        N6REJ/Adibags_Bears_Fishing
+        N6REJ/AdiBags-Bears-Fishing-Items
+        N6REJ/AdiBags_Bears_Hearthstones
         N6REJ/AdiBags_Bears_Herbs
         N6REJ/AdiBags_Bears_Inscription
+        N6REJ/Adibags_Bears_Jewelcrafting
+        N6REJ/AdiBags_Bears_Keystones
         N6REJ/AdiBags_Bears_Leatherworking
         N6REJ/AdiBags_Bears_Mining
-        N6REJ/AdiBags_Bears_Tailoring
-        N6REJ/Adibags_Bears_Alchemy
-        N6REJ/Adibags_Bears_Enchanting
-        N6REJ/Adibags_Bears_Fishing
-        N6REJ/Adibags_Bears_Jewelcrafting
-        N6REJ/AdiBags_Bears_Battle_Pet_Items
         N6REJ/AdiBags_Queens_Conservatory
-        N6REJ/AdiBags_Bears_Keystones
+        N6REJ/AdiBags_Bears_Tailoring
         N6REJ/AdiBags_Bears_Ultimate
-        N6REJ/AdiBags_Bears_Hearthstones
-        N6REJ/AdiBags-Bears-Fishing-Items
 
     # only for Professions databases
   - files:
-        - source: wow/DF-Vendor.lua
-          dest: DF-Vendor.lua
         - source: wow/DF-Global.lua
           dest: DF-Global.lua
         - source: wow/DF-Elemental.lua
           dest: DF-Elemental.lua
+        - source: wow/Global-dbs.lua
+          dest: Global-dbs.lua
     repos: |
+        N6REJ/Adibags_Bears_Alchemy
         N6REJ/AdiBags_Bears_Blacksmithing
         N6REJ/AdiBags_Bears_Cooking
+        N6REJ/Adibags_Bears_Enchanting
         N6REJ/AdiBags_Bears_Engineering
+        N6REJ/Adibags_Bears_Fishing
         N6REJ/AdiBags_Bears_Herbs
         N6REJ/AdiBags_Bears_Inscription
+        N6REJ/Adibags_Bears_Jewelcrafting
         N6REJ/AdiBags_Bears_Leatherworking
         N6REJ/AdiBags_Bears_Mining
         N6REJ/AdiBags_Bears_Tailoring
-        N6REJ/Adibags_Bears_Alchemy
-        N6REJ/Adibags_Bears_Enchanting
-        N6REJ/Adibags_Bears_Fishing
-        N6REJ/Adibags_Bears_Jewelcrafting
         N6REJ/AdiBags_Bears_Ultimate

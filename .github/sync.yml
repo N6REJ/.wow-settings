@@ -76,8 +76,6 @@ group:
   - files:
         - source: wow/DF-Global.lua
           dest: DF-Global.lua
-        - source: wow/DF-Elemental.lua
-          dest: DF-Elemental.lua
         - source: wow/Global-dbs.lua
           dest: Global-dbs.lua
     repos: |

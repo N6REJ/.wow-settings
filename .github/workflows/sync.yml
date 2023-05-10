@@ -19,7 +19,7 @@ jobs:
           SKIP_PR: true
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-env name=TIMESTAMP::$(date +'%Y.%m.%d')"
+        run: echo "::set-output name=timestamp::$(date +'%Y.%m.%d')"
       - name: Create or update tag in child repositories
         env:
           CHILD_REPOS: |
@@ -47,7 +47,7 @@ jobs:
           for repo in $CHILD_REPOS; do
             cd "$repo"
             git fetch --tags
-            tag=$(git tag --points-at HEAD --list "*.$TIMESTAMP*")
+            tag=$(git tag --points-at HEAD --list "*.$(echo ${{ steps.timestamp.outputs.timestamp }})*")
             if [[ -n "$tag" ]]; then
               # Tag already exists, update it
               new_tag="$tag.N"
@@ -55,7 +55,7 @@ jobs:
               git push origin "$new_tag" -f
             else
               # Tag doesn't exist, create a new one
-              new_tag="$TIMESTAMP"
+              new_tag="$(echo ${{ steps.timestamp.outputs.timestamp }})"
               git tag "$new_tag"
               git push origin "$new_tag"
             fi

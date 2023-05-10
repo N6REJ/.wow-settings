@@ -23,8 +23,8 @@ jobs:
       - name: Create or update tag in child repositories
         env:
           CHILD_REPOS: |
-            N6REJ/Adibags_Bears_Alchemy
-            N6REJ/AdiBags_Bears_Battle_Pet_Items
+            Adibags_Bears_Alchemy
+            AdiBags_Bears_Battle_Pet_Items
             N6REJ/AdiBags_Bears_Blacksmithing
             N6REJ/AdiBags_Bears_Cooking
             N6REJ/Adibags_Bears_Enchanting

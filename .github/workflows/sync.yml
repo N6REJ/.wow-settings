@@ -5,20 +5,25 @@ on:
       - main
       - dev
   workflow_dispatch:
+
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3.5.2
+
       - name: Run GitHub File Sync
         uses: BetaHuhn/repo-file-sync-action@latest
         with:
           GH_PAT: ${{ secrets.GH_PAT }}
           SKIP_PR: true
+
       - name: Generate timestamp
         id: timestamp
-        run: echo "TIMESTAMP=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+        run: echo "::set-output name=timestamp::$(date +'%Y.%m.%d')"
+
       - name: Create or update tag in child repositories
         env:
           CHILD_REPOS: |
@@ -42,21 +47,26 @@ jobs:
             N6REJ/AdiBags_Bears_Ultimate
             N6REJ/Bears_audio_switcher
             N6REJ/wowAddonTemplate
+
         run: |
           for repo in $CHILD_REPOS; do
-            cd "$repo"
-            git fetch --tags
-            tag=$(git tag --points-at HEAD --list "*.${TIMESTAMP}*")
-            if [[ -n "$tag" ]]; then
-              # Tag already exists, update it
-              new_tag="$tag.N"
-              git tag "$new_tag" -f
-              git push origin "$new_tag" -f
+            if [ -d "$repo" ]; then
+              cd "$repo"
+              git fetch --tags
+              tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
+              if [[ -n "$tag" ]]; then
+                # Tag already exists, update it
+                new_tag="$tag.N"
+                git tag "$new_tag" -f
+                git push origin "$new_tag" -f
+              else
+                # Tag doesn't exist, create a new one
+                new_tag="${{ steps.timestamp.outputs.timestamp }}"
+                git tag "$new_tag"
+                git push origin "$new_tag"
+              fi
+              cd ..
             else
-              # Tag doesn't exist, create a new one
-              new_tag="$TIMESTAMP"
-              git tag "$new_tag"
-              git push origin "$new_tag"
+              echo "Child repository directory '$repo' does not exist."
             fi
-            cd ..
           done

@@ -22,26 +22,26 @@ jobs:
       - name: Create or update tag in child repositories
         env:
           CHILD_REPOS: |
-            Adibags_Bears_Alchemy
-            AdiBags_Bears_Battle_Pet_Items
-            AdiBags_Bears_Blacksmithing
-            AdiBags_Bears_Cooking
-            Adibags_Bears_Enchanting
-            AdiBags_Bears_Engineering
-            Adibags_Bears_Fishing
-            AdiBags-Bears-Fishing-Items
-            AdiBags_Bears_Hearthstones
-            AdiBags_Bears_Herbs
-            AdiBags_Bears_Inscription
-            Adibags_Bears_Jewelcrafting
-            AdiBags_Bears_Keystones
-            AdiBags_Bears_Leatherworking
-            AdiBags_Bears_Mining
-            AdiBags_Queens_Conservatory
-            AdiBags_Bears_Tailoring
-            AdiBags_Bears_Ultimate
-            Bears_audio_switcher
-            wowAddonTemplate
+            N6REJ/Adibags_Bears_Alchemy
+            N6REJ/AdiBags_Bears_Battle_Pet_Items
+            N6REJ/AdiBags_Bears_Blacksmithing
+            N6REJ/AdiBags_Bears_Cooking
+            N6REJ/Adibags_Bears_Enchanting
+            N6REJ/AdiBags_Bears_Engineering
+            N6REJ/Adibags_Bears_Fishing
+            N6REJ/AdiBags-Bears-Fishing-Items
+            N6REJ/AdiBags_Bears_Hearthstones
+            N6REJ/AdiBags_Bears_Herbs
+            N6REJ/AdiBags_Bears_Inscription
+            N6REJ/Adibags_Bears_Jewelcrafting
+            N6REJ/AdiBags_Bears_Keystones
+            N6REJ/AdiBags_Bears_Leatherworking
+            N6REJ/AdiBags_Bears_Mining
+            N6REJ/AdiBags_Queens_Conservatory
+            N6REJ/AdiBags_Bears_Tailoring
+            N6REJ/AdiBags_Bears_Ultimate
+            N6REJ/Bears_audio_switcher
+            N6REJ/wowAddonTemplate
           
             # Add the names of all child repositories here
         run: |

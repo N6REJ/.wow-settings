@@ -13,7 +13,7 @@ remove all non-addon repos and use notepad++ to sort listing *optional*
 
 ### Steps to create an addon
 
-1. create git repo for addon
+1. create git repositry for addon
 2. create addon in [wago](https://https://addons.wago.io/developers)
 3. get addon id from dashboard
 4. put ```## X-Wago-ID: xx``` where xx = id # into .toc

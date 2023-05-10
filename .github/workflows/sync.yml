@@ -19,7 +19,7 @@ jobs:
 
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(date +'%Y.%m.%d')"
+        run: echo "{timestamp}={$(date +'%Y.%m.%d')}" >> $GITHUB_OUTPUT
       - name: Create or update tag in child repositories
         env:
           CHILD_REPOS: |
@@ -67,7 +67,7 @@ jobs:
           SOURCE_DIR: '.wow-settings/wow'
           DEST_DIR: '.'
 
-          # Global files to be synced
+          # Packager files to be synced
           FILES: |
             .github/CODEOWNERS .github/CODEOWNERS
             .github/FUNDING.yml .github/FUNDING.yml

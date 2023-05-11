@@ -72,7 +72,7 @@ jobs:
           done
 
       - name: Trigger Package and release workflow
-        uses: peter-evans/trigger-workflow@v2
+        uses: peter-evans/trigger-workflow@v2.1.0
         with:
           workflow: "Package and release"
           token: ${{ secrets.GITHUB_TOKEN }}

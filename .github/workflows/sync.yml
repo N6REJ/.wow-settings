@@ -47,7 +47,6 @@ jobs:
             N6REJ/AdiBags_Bears_Ultimate
             N6REJ/Bears_audio_switcher
             N6REJ/wowAddonTemplate
-
         run: |
           for repo in $CHILD_REPOS; do
             if [ -d "$repo" ]; then
@@ -70,12 +69,4 @@ jobs:
               echo "Child repository directory '$repo' does not exist."
             fi
           done
-
-      - name: Trigger Package and release workflow
-        uses: BigWigsMods/packager@v2.1.0
-        with:
-          workflow: "Package and release"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.ref }}
-          inputs: |
-            tag_name=${{ steps.timestamp.outputs.timestamp }}
+Editing .wow-settings/sync.yml at

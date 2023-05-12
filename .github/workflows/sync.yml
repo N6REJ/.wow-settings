@@ -69,4 +69,3 @@ jobs:
               echo "Child repository directory '$repo' does not exist."
             fi
           done
-Editing .wow-settings/sync.yml at

@@ -47,7 +47,6 @@ jobs:
             N6REJ/AdiBags_Bears_Ultimate
             N6REJ/Bears_audio_switcher
             N6REJ/wowAddonTemplate
-
         run: |
           for repo in $CHILD_REPOS; do
             if [ -d "$repo" ]; then

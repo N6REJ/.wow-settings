@@ -1,4 +1,5 @@
 name: Sync Files
+
 on:
   push:
     branches:
@@ -33,7 +34,7 @@ jobs:
             N6REJ/AdiBags_Bears_Cooking
             N6REJ/Adibags_Bears_Enchanting
             N6REJ/AdiBags_Bears_Engineering
-            N6REJ/Adibags_Bears_Fishing
+            N6REJ/AdiBags_Bears_Fishing
             N6REJ/AdiBags-Bears-Fishing-Items
             N6REJ/AdiBags_Bears_Hearthstones
             N6REJ/AdiBags_Bears_Herbs

@@ -53,15 +53,19 @@ jobs:
             if [ -d "$repo" ]; then
               cd "$repo"
               git fetch --tags
-              tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
+              tag=$(git tag --list "*.${{ steps.timestamp.outputs.timestamp }}*" --sort=-version:refname | head -n 1)
               if [[ -n "$tag" ]]; then
-                # Tag already exists, update it
-                new_tag="$tag.N"
-                git tag "$new_tag" -f
-                git push origin "$new_tag" -f
+                # Tag already exists, increment it
+                IFS='.' read -ra parts <<< "$tag"
+                n=${parts[-1]}
+                n=$((n + 1))
+                parts[-1]=$n
+                new_tag="${parts[*]}"
+                git tag "$new_tag"
+                git push origin "$new_tag"
               else
                 # Tag doesn't exist, create a new one
-                new_tag="${{ steps.timestamp.outputs.timestamp }}"
+                new_tag="${{ steps.timestamp.outputs.timestamp }}.1"
                 git tag "$new_tag"
                 git push origin "$new_tag"
               fi

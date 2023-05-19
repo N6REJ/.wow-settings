@@ -5,7 +5,8 @@ on:
     branches:
       - main
       - dev
-  workflow_dispatch:
+    paths:
+      - '.wow-settings/wow/**'  # Only trigger on changes within the 'wow' folder
 
 jobs:
   sync:
@@ -24,6 +25,22 @@ jobs:
       - name: Generate timestamp
         id: timestamp
         run: echo "::set-output name=timestamp::$(date +'%Y.%m.%d')"
+
+      - name: Create or update tag in parent repository
+        run: |
+          git fetch --tags
+          tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
+          if [[ -n "$tag" ]]; then
+            # Tag already exists, update it
+            new_tag="$tag.N"
+            git tag "$new_tag" -f
+            git push origin "$new_tag" -f
+          else
+            # Tag doesn't exist, create a new one
+            new_tag="${{ steps.timestamp.outputs.timestamp }}"
+            git tag "$new_tag"
+            git push origin "$new_tag"
+          fi
 
       - name: Create or update tag in child repositories
         env:
@@ -53,19 +70,15 @@ jobs:
             if [ -d "$repo" ]; then
               cd "$repo"
               git fetch --tags
-              tag=$(git tag --list "*.${{ steps.timestamp.outputs.timestamp }}*" --sort=-version:refname | head -n 1)
+              tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
               if [[ -n "$tag" ]]; then
-                # Tag already exists, increment it
-                IFS='.' read -ra parts <<< "$tag"
-                n=${parts[-1]}
-                n=$((n + 1))
-                parts[-1]=$n
-                new_tag="${parts[*]}"
-                git tag "$new_tag"
-                git push origin "$new_tag"
+                # Tag already exists, update it
+                new_tag="$tag.N"
+                git tag "$new_tag" -f
+                git push origin "$new_tag" -f
               else
                 # Tag doesn't exist, create a new one
-                new_tag="${{ steps.timestamp.outputs.timestamp }}.1"
+                new_tag="${{ steps.timestamp.outputs.timestamp }}"
                 git tag "$new_tag"
                 git push origin "$new_tag"
               fi

@@ -6,7 +6,7 @@ on:
       - main
       - dev
     paths:
-      - '.wow-settings/wow/**'  # Only trigger on changes within the 'wow' folder
+      - '/wow/**'  # Only trigger on changes within the 'wow' folder
 
 jobs:
   sync:

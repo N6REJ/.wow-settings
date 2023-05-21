@@ -1,18 +1,86 @@
 name: Sync Files
+
 on:
-    push:
-        branches:
-            - main
-            - dev
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+      - dev
 jobs:
-    sync:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v3.5.2
-            - name: Run GitHub File Sync
-              uses: BetaHuhn/repo-file-sync-action@latest
-              with:
-                  GH_PAT: ${{ secrets.GH_PAT }}
-                  SKIP_PR: true
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Run GitHub File Sync
+        uses: BetaHuhn/repo-file-sync-action@latest
+        with:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          SKIP_PR: true
+
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "::set-output name=timestamp::$(date +'%Y.%m.%d')"
+
+      - name: Create or update tag in parent repository
+        run: |
+          git fetch --tags
+          tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
+          if [[ -n "$tag" ]]; then
+            # Tag already exists, update it
+            new_tag="$tag.N"
+            git tag "$new_tag" -f
+            git push origin "$new_tag" -f
+          else
+            # Tag doesn't exist, create a new one
+            new_tag="${{ steps.timestamp.outputs.timestamp }}"
+            git tag "$new_tag"
+            git push origin "$new_tag"
+          fi
+
+      - name: Create or update tag in child repositories
+        env:
+          CHILD_REPOS: |
+            N6REJ/Adibags_Bears_Alchemy
+            N6REJ/AdiBags_Bears_Battle_Pet_Items
+            N6REJ/AdiBags_Bears_Blacksmithing
+            N6REJ/AdiBags_Bears_Cooking
+            N6REJ/Adibags_Bears_Enchanting
+            N6REJ/AdiBags_Bears_Engineering
+            N6REJ/AdiBags_Bears_Fishing
+            N6REJ/AdiBags-Bears-Fishing-Items
+            N6REJ/AdiBags_Bears_Hearthstones
+            N6REJ/AdiBags_Bears_Herbs
+            N6REJ/AdiBags_Bears_Inscription
+            N6REJ/Adibags_Bears_Jewelcrafting
+            N6REJ/AdiBags_Bears_Keystones
+            N6REJ/AdiBags_Bears_Leatherworking
+            N6REJ/AdiBags_Bears_Mining
+            N6REJ/AdiBags_Queens_Conservatory
+            N6REJ/AdiBags_Bears_Tailoring
+            N6REJ/AdiBags_Bears_Ultimate
+            N6REJ/Bears_audio_switcher
+            N6REJ/wowAddonTemplate
+        run: |
+          for repo in $CHILD_REPOS; do
+            if [ -d "$repo" ]; then
+              cd "$repo"
+              git fetch --tags
+              tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
+              if [[ -n "$tag" ]]; then
+                # Tag already exists, update it
+                new_tag="$tag.N"
+                git tag "$new_tag" -f
+                git push origin "$new_tag" -f
+              else
+                # Tag doesn't exist, create a new one
+                new_tag="${{ steps.timestamp.outputs.timestamp }}"
+                git tag "$new_tag"
+                git push origin "$new_tag"
+              fi
+              cd ..
+            else
+              echo "Child repository directory '$repo' does not exist."
+            fi
+          done

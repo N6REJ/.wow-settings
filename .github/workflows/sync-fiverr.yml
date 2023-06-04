@@ -17,23 +17,8 @@ jobs:
 
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(date +'%Y.%m.%d')"
-
-      - name: Create or update tag in parent repository
-        run: |
-          git fetch --tags
-          tag=$(git tag --points-at HEAD --list "*.${{ steps.timestamp.outputs.timestamp }}*")
-          if [[ -n "$tag" ]]; then
-            # Tag already exists, update it
-            new_tag="$tag.N"
-            git tag "$new_tag" -f
-            git push origin "$new_tag" -f
-          else
-            # Tag doesn't exist, create a new one
-            new_tag="${{ steps.timestamp.outputs.timestamp }}"
-            git tag "$new_tag"
-            git push origin "$new_tag"
-          fi
+        run: echo "timestamp=$(date +'%Y.%m.%d')" >> $GITHUB_STATE
+        run: echo "timestamp=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
 
       - name: Create or update tag in child repositories
         env:

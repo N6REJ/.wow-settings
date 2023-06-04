@@ -189,6 +189,7 @@ db.Filters = {
             [137642] = true, -- Mark of Honor
             [1602] = true, -- Conquest
             [204985] = true, -- Barter Brick
+            [205188] = true, -- Barter Boulder
         }
     }
 }

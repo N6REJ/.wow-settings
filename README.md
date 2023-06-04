@@ -35,7 +35,7 @@ remove all non-addon repos and use notepad++ to sort listing *optional*
 11. Commit & push
 12. open addon repo in phpstorm
 13. pull
-14. make sure .packager/ and .github have been synced with the settings repo https://github.com/N6REJ/.wow-settings
+14. make sure .packager/ and .github have been synced with the settings repo https://github.com/.wow-settings
     *Both should have "release.yml" in workflows*
 15. Write addon, commit, & push
 16. create tag using yyyy.mm.dd versioning

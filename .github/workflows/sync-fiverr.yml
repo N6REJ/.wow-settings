@@ -16,7 +16,7 @@ jobs:
       - name: Create or update tag in child repositories
         env:
           CHILD_REPOS: |
-            AdiBags_Bears_Alchemy
+            /AdiBags_Bears_Alchemy
             AdiBags_Bears_Battle_Pet_Items
             AdiBags_Bears_Blacksmithing
             AdiBags_Bears_Cooking
@@ -34,7 +34,6 @@ jobs:
             AdiBags_Queens_Conservatory
             AdiBags_Bears_Tailoring
             AdiBags_Bears_Ultimate
-            Bears_audio_switcher
             wowAddonTemplate
         run: |
           for repo in $CHILD_REPOS; do

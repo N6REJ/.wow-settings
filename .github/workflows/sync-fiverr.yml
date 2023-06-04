@@ -6,15 +6,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3.5.2
-
-      - name: Run GitHub File Sync
-        uses: BetaHuhn/repo-file-sync-action@latest
-        with:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          SKIP_PR: true
-
       - name: Generate timestamp
         id: timestamp
         run: echo "timestamp=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT

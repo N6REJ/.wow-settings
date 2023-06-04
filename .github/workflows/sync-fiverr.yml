@@ -1,4 +1,4 @@
-name: Sync Files
+name: Sync fiverr Files
 
 on: workflow_dispatch
 jobs:

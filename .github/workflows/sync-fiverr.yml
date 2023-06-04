@@ -14,9 +14,11 @@ jobs:
         run: echo "timestamp=$(date +'%Y.%m.%d')" >> $GITHUB_OUTPUT
 
       - name: Create or update tag in child repositories
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           CHILD_REPOS: |
-            /AdiBags_Bears_Alchemy
+            AdiBags_Bears_Alchemy
             AdiBags_Bears_Battle_Pet_Items
             AdiBags_Bears_Blacksmithing
             AdiBags_Bears_Cooking
